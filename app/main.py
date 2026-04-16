@@ -4,6 +4,9 @@ def copy_file(command: str = "cp") -> bool:
     if len(parts) != 3 or parts[0] != "cp":
         return False
 
+    if parts[1] == parts[2]:
+        return True
+
     try:
         with (open(parts[1], "r") as file_read,
               open(parts[2], "w") as file_write):
